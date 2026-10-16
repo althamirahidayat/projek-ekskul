@@ -17,7 +17,7 @@ if ($nama === '' || $nis === '' || $kelas === '' || $notelp === '' || $email ===
 }
 
 // Cek apakah NIS atau email sudah terdaftar
-$cek = $conn->prepare("SELECT id_siswa FROM Table_siswa WHERE nis = ? OR email = ?");
+$cek = $conn->prepare("SELECT id_siswa FROM table_siswa WHERE nis = ? OR email = ?");
 $cek->bind_param("ss", $nis, $email);
 $cek->execute();
 $cek->store_result();
