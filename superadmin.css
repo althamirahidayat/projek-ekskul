@@ -1,0 +1,124 @@
+/* =========================================================
+   LOGIN PAGE SUPERADMIN — PREMIUM DARK NAVY + GOLD ACCENT
+   ========================================================= */
+
+/* Membungkus halaman login agar centered */
+.login-superadmin-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Card container */
+.login-card {
+    background: #ffffff;
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid var(--border-color);
+    animation: fadeInUp .6s ease;
+}
+
+/* Animasi halus */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Judul login */
+.login-card h1 {
+    font-size: 28px;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+}
+
+/* Label input */
+.login-card label {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Input styling premium */
+.login-card input {
+    padding: 13px 14px;
+    font-size: 15px;
+    border-radius: var(--radius);
+    border: 1.6px solid #cfd3e1;
+    transition: .25s;
+}
+
+.login-card input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(45,102,255,0.18);
+}
+
+/* Tombol login */
+.login-card .btn-submit {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border-radius: var(--radius);
+    background: var(--primary);
+    color: white;
+    font-weight: 700;
+    border: none;
+    transition: .3s;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.login-card .btn-submit:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(45,102,255,0.25);
+}
+
+/* Link kembali */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: var(--text-medium);
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.back-link:hover {
+    color: var(--primary);
+    transform: translateX(-3px);
+}
+
+
+.superadmin-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.superadmin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.superadmin-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--light-gray);
+    transition: 0.2s;
+}
+
+.superadmin-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-3px);
+}

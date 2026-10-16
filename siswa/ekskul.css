@@ -1,0 +1,135 @@
+/* ===== HALAMAN DETAIL EKSKUL ===== */
+.container {
+    width: 85%;
+    margin: 40px auto;
+    padding: 20px;
+    }
+    
+    .judul-ekskul {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2a44;
+    margin-bottom: 25px;
+    text-align: center;
+    }
+    
+    .exskul-detail {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+    }
+    
+    .gambar-ekskul {
+    width: 300px;
+    border-radius: 12px;
+    border: 1px solid #d6d7db;
+    object-fit: cover;
+    }
+    
+    .deskripsi {
+    flex: 1;
+    min-width: 250px;
+    }
+    
+    .deskripsi h3 {
+    margin-top: 10px;
+    color: #2d66ff;
+    }
+    
+    .deskripsi p {
+    margin-top: 8px;
+    line-height: 1.6;
+    color: #4a4a50;
+    }
+    
+    /* Tombol */
+    .btn {
+    display: inline-block;
+    padding: 10px 18px;
+    margin-top: 12px;
+    background: #2d66ff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.25s;
+    }
+    
+    .btn:hover {
+    background: #1c4ad6;
+    transform: translateY(-2px);
+    }
+    
+    /* Status */
+    .status-pendaftaran {
+    background: #f4f6fb;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    }
+    
+    .status-pendaftaran h3 {
+    color: #2d66ff;
+    margin-bottom: 12px;
+    }
+    
+    .status-menunggu { color: #d97706; font-weight: 600; }
+    .status-diterima { color: #16a34a; font-weight: 600; }
+    .status-ditolak { color: #dc2626; font-weight: 600; }
+    
+    /* Upload bukti */
+    .upload-bukti {
+    margin-top: 15px;
+    }
+    
+    .upload-bukti input[type="file"] {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #d6d7db;
+    }
+    
+    .btn-submit {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+    }
+    
+    .btn-submit:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    }
+    
+    /* Tombol kembali */
+    .btn-back {
+    display: inline-block;
+    background: #555;
+    margin-top: 10px;
+    }
+    
+    .btn-back:hover {
+    background: #333;
+    transform: translateY(-2px);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+    .exskul-detail {
+    flex-direction: column;
+    align-items: center;
+    }
+    .gambar-ekskul {
+    width: 100%;
+    max-width: 300px;
+    }
+    }
+    

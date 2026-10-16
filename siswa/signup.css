@@ -1,0 +1,108 @@
+/* ============================================================
+   SIGNUP SISWA (tema soft blue + card besar)
+============================================================ */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-page);
+    padding: 20px;
+}
+
+.auth-card {
+    width: 480px;
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: .3s;
+}
+
+.auth-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.auth-logo {
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.auth-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+}
+
+.auth-subtitle {
+    font-size: 15px;
+    color: var(--text-medium);
+    margin-bottom: 25px;
+}
+
+/* FORM */
+.auth-form {
+    text-align: left;
+}
+
+.auth-form label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    margin-bottom: 14px;
+    background: #fff;
+    transition: .2s;
+}
+
+.auth-form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(45,102,255,0.2);
+}
+
+/* BUTTON */
+.auth-btn {
+    width: 100%;
+    padding: 13px;
+    background: var(--primary);
+    border: none;
+    color: white;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+    margin-top: 5px;
+}
+
+.auth-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* switch login */
+.auth-switch {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.auth-switch a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}

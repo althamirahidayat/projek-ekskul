@@ -1,0 +1,132 @@
+/* ==========================================================
+   KELOLA ADMIN — CARD + TABLE MODERN BLUE SYSTEM
+========================================================== */
+
+.content-area {
+    margin-left: 250px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* CARD ATAS */
+.content-card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+}
+
+.title {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--text-medium);
+    margin-top: 5px;
+}
+
+/* WRAPPER UNTUK TABLE */
+.table-card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+}
+
+/* HEADER TABLE + BTN ADD */
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.btn-add {
+    padding: 10px 18px;
+    background: #1dbf47; /* hijau */
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.btn-add:hover {
+    background: #18a43d;
+    transform: translateY(-2px);
+}
+
+/* TABLE */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.styled-table th {
+    background: #eef2ff;
+    padding: 14px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.styled-table td {
+    padding: 14px;
+    border-bottom: 1px solid #e3e6f0;
+    background: #ffffff;
+}
+
+/* Hover row */
+.styled-table tr:hover td {
+    background: #f7f9ff;
+}
+
+/* ACTION BUTTONS */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* EDIT BUTTON */
+.btn-edit {
+    padding: 7px 12px;
+    background: #ffcf4d;
+    color: #6b4e00;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.btn-edit:hover {
+    background: #f2be37;
+    transform: translateY(-2px);
+}
+
+/* DELETE BUTTON */
+.btn-delete {
+    padding: 7px 12px;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.btn-delete:hover {
+    background: #e44f4f;
+    transform: translateY(-2px);
+}
+
+/* ACTIVE ITEM DI SIDEBAR */
+.menu-item.active {
+    background: rgba(255,255,255,0.25);
+    font-weight: 600;
+    color: #ffffff;
+}

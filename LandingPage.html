@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendaftaran Ekskul | SMKN 1 Kota Bekasi</title>
+  <!-- Menggunakan font Inter dari Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Variabel Warna */
+    :root {
+      --color-primary: #0D47A1; /* Biru Gelap/Navy */
+      --color-secondary: #1976D2; /* Biru Standar */
+      --color-white: #ffffff;
+      --color-grey-light: #f7f7f7;
+      --color-text-dark: #333333;
+    }
+
+    /* Reset Global */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      background-color: var(--color-grey-light); /* Latar belakang abu-abu muda */
+      color: var(--color-text-dark);
+      padding: 20px;
+    }
+
+    /* Container Utama */
+    .main-container {
+      display: flex;
+      width: 100%;
+      max-width: 1100px; /* Ukuran yang ideal */
+      margin: auto;
+      height: 85vh; /* Tinggi menyesuaikan viewport */
+      min-height: 550px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      background: var(--color-white);
+      animation: slideIn 0.8s ease-out;
+    }
+
+    /* --- KOLOM KIRI: OPSI LOGIN (Minimalis Putih) --- */
+    .login-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 30px;
+      background-color: var(--color-white);
+      text-align: center;
+      min-width: 350px; /* Batasan lebar minimum */
+    }
+
+    .logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 4px solid var(--color-secondary);
+      margin-bottom: 25px;
+      object-fit: cover;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .logo:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(25, 118, 210, 0.5);
+    }
+
+    .welcome-text h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 5px;
+    }
+    .welcome-text h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 35px;
+    }
+    .welcome-text p {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--color-primary);
+        margin-bottom: 20px;
+    }
+
+    /* Tombol Pilihan Role */
+    .role-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 320px;
+    }
+    .btn-role {
+      padding: 15px 25px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--color-white);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-role.siswa {
+      background-color: var(--color-secondary);
+    }
+    .btn-role.admin {
+      background-color: #00BCD4; /* Cyan */
+    }
+    .btn-role.superadmin {
+      background-color: var(--color-primary);
+    }
+
+    .btn-role:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    .btn-role span { margin-right: 10px; }
+
+    /* --- KOLOM KANAN: IMAGE SLIDER --- */
+    .slider-section {
+      flex: 1.5; /* Lebih lebar dari kolom login */
+      position: relative;
+      background-color: #e0e0e0;
+      overflow: hidden;
+    }
+
+    /* Wrapper untuk sliding effect */
+    .slider-wrapper {
+      display: flex;
+      width: 500%; /* 5 gambar x 100% */
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    /* Style setiap slide */
+    .slider-image-container {
+      width: 20%; /* 100% / 5 gambar */
+      flex-shrink: 0;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 30px;
+      position: relative;
+    }
+    
+    .slide-caption {
+        background: rgba(13, 71, 161, 0.7); /* Menggunakan var(--color-primary) dengan opacity */
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+        text-align: center;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Indikator Slider */
+    .slider-indicators {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .dot.active {
+        background-color: var(--color-white);
+        transform: scale(1.2);
+    }
+
+    /* --- ANIMASI --- */
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* --- RESPONSIVENESS (Mobile/Tablet) --- */
+    @media (max-width: 900px) {
+      body { padding: 10px; }
+      .main-container {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+        max-width: 500px;
+        margin: 20px auto;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+      }
+      
+      .login-section {
+        order: 2; /* Pindah login ke bawah slider */
+        padding: 30px 20px;
+      }
+      
+      .slider-section {
+        flex: none;
+        height: 250px; /* Atur tinggi slider agar terlihat di mobile */
+        order: 1; /* Pindah slider ke atas */
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+
+      .welcome-text h1 { font-size: 1.6rem; }
+      .welcome-text h2 { font-size: 1.1rem; margin-bottom: 25px; }
+      .btn-role { font-size: 0.95rem; padding: 12px 15px; }
+    }
+    
+    @media (max-width: 500px) {
+      .welcome-text h1 { font-size: 1.4rem; }
+      .welcome-text h2 { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    
+    <!-- KOLOM KIRI: OPSI LOGIN (MINIMALIS) -->
+    <section class="login-section">
+      <!-- Logo SMK - Ganti src dengan path logo Anda. Menggunakan placeholder jika path asli tidak ditemukan. -->
+      <img 
+        src="pic/logo1.png" 
+        onerror="this.onerror=null; this.src='https://placehold.co/90x90/0D47A1/FFFFFF?text=LOGO';"
+        alt="Logo SMK N 1 Kota Bekasi" 
+        class="logo" 
+        loading="lazy" 
+      />
+
+      <div class="welcome-text">
+        <h1>SELAMAT DATANG</h1>
+        <h2>WEBSITE PENDAFTARAN EKSTRAKULIKULER</h2>
+        <p>SMK NEGERI 1 KOTA BEKASI</p>
+      </div>
+
+      <div class="role-buttons">
+        <!-- Link ke file PHP/Login Anda -->
+        <a href="login_siswa.php" class="btn-role siswa">
+          <span>🧑‍🎓</span> Masuk Sebagai Siswa
+        </a>
+        <a href="login_admin.php" class="btn-role admin">
+          <span>🧑‍💻</span> Masuk Sebagai Admin Ekskul
+        </a>
+        <a href="login_superadmin.php" class="btn-role superadmin">
+          <span>🏫</span> Masuk Sebagai Admin Sekolah
+        </a>
+      </div>
+    </section>
+
+    <!-- KOLOM KANAN: IMAGE SLIDER -->
+    <section class="slider-section">
+      <div class="slider-wrapper" id="sliderWrapper">
+        
+        <!-- SLIDE 1: PERBAIKAN: Pastikan tag </div> tertutup dengan benar -->
+        <div class="slider-image-container" data-image="pic/ballet.jpeg">
+           <div class="slide-caption">Ballet Modern</div>
+        </div>
+        
+        <!-- SLIDE 2: PERBAIKAN: Pastikan tag </div> tertutup dengan benar -->
+        <div class="slider-image-container" data-image="pic/futsal.jpg">
+           <div class="slide-caption">Futsal Tim Putra</div>
+        </div>
+        
+        <!-- SLIDE 3: PERBAIKAN: Pastikan tag </div> tertutup dengan benar -->
+        <div class="slider-image-container" data-image="pic/Taekwondo.jpeg">
+            <div class="slide-caption">Taekwondo</div>
+        </div>
+
+        <!-- SLIDE 4: PERBAIKAN: Pastikan tag </div> tertutup dengan benar -->
+        <div class="slider-image-container" data-image="pic/moderndance.jpeg">
+            <div class="slide-caption">Modern Dance</div>
+        </div>
+        
+        <!-- SLIDE 5: PERBAIKAN: Pastikan tag </div> tertutup dengan benar -->
+        <div class="slider-image-container" data-image="pic/paskibra.jpg">
+            <div class="slide-caption">Paskibra Sekolah</div>
+        </div>
+        
+      </div>
+       <!-- Indikator Slider (Dots) -->
+      <div class="slider-indicators" id="sliderIndicators">
+          <div class="dot active" data-slide="0"></div>
+          <div class="dot" data-slide="1"></div>
+          <div class="dot" data-slide="2"></div>
+          <div class="dot" data-slide="3"></div>
+          <div class="dot" data-slide="4"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const sliderWrapper = document.getElementById('sliderWrapper');
+    const slides = document.querySelectorAll('.slider-image-container');
+    const indicatorsContainer = document.getElementById('sliderIndicators');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const intervalTime = 4500; // 4.5 detik per slide
+    let slideInterval; // Dideklarasikan di scope luar agar bisa diakses oleh resetInterval
+
+    // Fungsi untuk memuat gambar dari data-attribute dan menggeser slide
+    function goToSlide(index) {
+        // Handle wrapping around
+        if (index >= totalSlides) {
+            index = 0;
+        } else if (index < 0) {
+            index = totalSlides - 1;
+        }
+
+        // Update index
+        currentIndex = index;
+        
+        // Hitung offset geser
+        const offset = -currentIndex * 100 / totalSlides;
+        sliderWrapper.style.transform = `translateX(${offset}%)`;
+
+        // Update indikator (dots)
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+        
+        // Memastikan background image sudah dimuat
+        // Note: Ini dilakukan di onload, tapi tetap aman jika dipanggil di sini juga
+        const imageUrl = slides[currentIndex].getAttribute('data-image');
+        if (slides[currentIndex].style.backgroundImage === '') {
+             slides[currentIndex].style.backgroundImage = `url('${imageUrl}')`;
+        }
+    }
+
+    // Fungsi untuk menggeser ke slide berikutnya secara otomatis
+    function nextSlide() {
+      const nextIndex = (currentIndex + 1) % totalSlides;
+      goToSlide(nextIndex);
+    }
+
+    // Reset interval saat ada interaksi user
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    // Event listener untuk klik pada indikator
+    indicatorsContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('dot')) {
+            const slideIndex = parseInt(e.target.getAttribute('data-slide'));
+            resetInterval();
+            goToSlide(slideIndex);
+        }
+    });
+
+    // Inisialisasi: Muat semua gambar dan mulai slider saat halaman dimuat
+    window.onload = () => {
+        slides.forEach(slide => {
+            const imageUrl = slide.getAttribute('data-image');
+            // Mengatur background image untuk semua slide
+            slide.style.backgroundImage = `url('${imageUrl}')`;
+        });
+        
+        // Pastikan slide pertama aktif dan tampil
+        goToSlide(0); 
+        
+        // Mulai otomatisasi slider
+        slideInterval = setInterval(nextSlide, intervalTime);
+    };
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+/* =======================================================
+   SUPERADMIN LOGIN — MODERN BLUE MINIMALIST DESIGN
+======================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(135deg, #eaf1ff, #c7d4ff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARD */
+.login-card {
+    width: 380px;
+    background: #ffffffee;
+    padding: 32px;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    backdrop-filter: blur(6px);
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2a44;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #5f6680;
+    margin-bottom: 28px;
+}
+
+/* INPUT GROUP */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2d3759;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #c9cfe1;
+    background: #f7f9ff;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #2d66ff;
+    box-shadow: 0 0 0 3px rgba(45,102,255,0.2);
+    outline: none;
+}
+
+/* BUTTON */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: #2d66ff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.btn-login:hover {
+    background: #1c4ad6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(45,102,255,0.28);
+}
+
+/* BACK LINK */
+.back-link {
+    display: block;
+    margin-top: 18px;
+    text-align: center;
+    font-size: 14px;
+    color: #445a8f;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.back-link:hover {
+    color: #2d66ff;
+    text-decoration: underline;
+}

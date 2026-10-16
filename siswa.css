@@ -1,0 +1,9 @@
+.ekskul-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}

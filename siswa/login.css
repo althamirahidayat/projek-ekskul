@@ -1,0 +1,102 @@
+/* ============================================================
+   LOGIN SISWA (tema soft blue + card)
+============================================================ */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--bg-page);
+    padding: 20px;
+}
+
+.auth-card {
+    width: 380px;
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: .3s;
+}
+
+.auth-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.auth-logo {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.auth-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+/* FORM */
+.auth-form {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.auth-form label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    margin-bottom: 14px;
+    transition: .2s;
+    background: #fff;
+}
+
+.auth-form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(45,102,255,0.2);
+}
+
+/* BUTTON */
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    border: none;
+    border-radius: var(--radius);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: .25s;
+    cursor: pointer;
+}
+
+.auth-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* switch */
+.auth-switch {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.auth-switch a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}

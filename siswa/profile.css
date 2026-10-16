@@ -1,0 +1,118 @@
+/* Import font jika diperlukan, contoh: */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
+
+/* Asumsi global.css sudah mengatur font dasar, body, dll. */
+
+/* Tata Letak Utama */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Agar card berada di tengah vertikal */
+    padding: 20px;
+    background-color: #f4f7f6; /* Warna latar belakang halaman yang lembut */
+}
+
+/* Styling Card */
+.card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Bayangan yang elegan */
+    width: 100%;
+    max-width: 500px; /* Batasi lebar card */
+    box-sizing: border-box;
+}
+
+/* Judul */
+.card h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.95em;
+}
+
+/* Input Fields */
+.profile-form input[type="text"],
+.profile-form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.profile-form input:focus {
+    border-color: #4a90e2; /* Warna fokus yang menyegarkan */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+/* Input yang Disabled (data statis) */
+.disabled-input {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+    border-style: dashed;
+}
+
+/* Tombol Aksi */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn-submit,
+.btn-back {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Untuk tag <a> */
+    transition: background-color 0.3s, transform 0.1s;
+    font-size: 1em;
+}
+
+/* Tombol Simpan */
+.btn-submit {
+    background-color: #4a90e2; /* Warna utama biru */
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #3a7bc3; /* Sedikit lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek angkat */
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+}
+
+/* Tombol Kembali */
+.btn-back {
+    background-color: #adb5bd; /* Abu-abu sekunder */
+    color: #333;
+}
+
+.btn-back:hover {
+    background-color: #95a5a6; /* Sedikit lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek angkat */
+}

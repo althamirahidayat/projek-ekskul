@@ -1,0 +1,381 @@
+<?php
+session_start();
+include 'koneksi.php';
+
+if (!isset($_SESSION['superadmin_id']) || ($_SESSION['role'] ?? '') !== 'superadmin') {
+    header("Location: login_superadmin.php");
+    exit;
+}
+
+$nama_superadmin = $_SESSION['superadmin_nama'] ?? "Superadmin";
+// Pastikan query berjalan dengan baik
+$result = $conn->query("SELECT * FROM Table_admin ORDER BY id_admin DESC");
+
+// Tambahkan pengecekan jika query gagal
+if ($result === FALSE) {
+    // Ini bisa diubah menjadi log error atau pesan yang lebih ramah pengguna
+    $error_message = "Error database: " . $conn->error;
+    $result = null; // Set result menjadi null agar tidak error saat di-fetch
+}
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelola Admin Ekskul</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    /* Variabel CSS untuk konsistensi */
+    :root {
+        --primary-color: #0D47A1;
+        --secondary-color: #1976D2;
+        --accent-green: #4CAF50;
+        --accent-red: #D32F2F;
+        --accent-yellow: #FFC107;
+        --bg-light: #f4f7f9;
+        --card-bg: #ffffff;
+        --text-dark: #333;
+        --radius-lg: 12px;
+        --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+    }
+
+    .layout {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+        width: 250px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        height: 100vh;
+        z-index: 10;
+    }
+
+    .sidebar-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+    .sidebar-logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        object-fit: cover;
+        background-color: white;
+    }
+    .sidebar-header h2 {
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .menu-item {
+        padding: 15px 20px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 600;
+        transition: background-color 0.2s, color 0.2s;
+        border-left: 4px solid transparent;
+    }
+    .menu-item:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white;
+    }
+    .menu-item.active {
+        background-color: var(--secondary-color);
+        border-left: 4px solid var(--accent-yellow);
+        color: white;
+    }
+    .menu-item.logout {
+        margin-top: auto;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Content Area Styling */
+    .content-area {
+        flex-grow: 1;
+        margin-left: 250px;
+        padding: 30px;
+        width: calc(100% - 250px);
+    }
+
+    .content-card, .table-card {
+        background: var(--card-bg);
+        border-radius: var(--radius-lg);
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow-md);
+    }
+
+    .title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 5px;
+        color: var(--text-dark);
+    }
+    .subtitle {
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    .table-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .table-header h2 {
+        font-size: 1.4rem;
+        color: var(--primary-color);
+        font-weight: 700;
+    }
+
+    .btn-add {
+        background-color: var(--accent-green);
+        color: white;
+        padding: 10px 15px; 
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background-color 0.2s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .btn-add:hover {
+        background-color: #43A047;
+    }
+
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+    .styled-table th, .styled-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+    }
+    .styled-table th {
+        background-color: #f0f0f0;
+        color: var(--text-dark);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+    }
+    .styled-table tr:hover {
+        background-color: #f9f9f9;
+    }
+    
+    /* Action Buttons */
+    .action-buttons a {
+        margin-right: 8px;
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: inline-block;
+        transition: opacity 0.2s;
+    }
+    .btn-edit {
+        background-color: var(--secondary-color);
+        color: white;
+    }
+    .btn-delete {
+        background-color: var(--accent-red);
+        color: white;
+    }
+    .btn-edit:hover {
+        opacity: 0.85;
+    }
+    .btn-delete:hover {
+        opacity: 0.85;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .layout {
+            flex-direction: column;
+        }
+        .sidebar {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding: 10px 0;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .sidebar-header {
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar-header h2 {
+            display: none; 
+        }
+        .sidebar-menu {
+            display: flex; 
+            flex-direction: row;
+            overflow-x: auto;
+            gap: 5px;
+            padding: 0 10px;
+        }
+        .menu-item {
+            padding: 8px 12px;
+            white-space: nowrap;
+        }
+        .content-area {
+            margin-left: 0; 
+            padding: 20px 15px;
+        }
+        .styled-table, .styled-table thead, .styled-table tbody, .styled-table th, .styled-table td, .styled-table tr { 
+            display: block; 
+        }
+        .styled-table thead tr { 
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        .styled-table tr { 
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .styled-table td { 
+            border: none;
+            border-bottom: 1px solid #eee; 
+            position: relative;
+            padding-left: 50%; 
+            text-align: right;
+        }
+        .styled-table td:before { 
+            position: absolute;
+            top: 0;
+            left: 6px;
+            width: 45%; 
+            padding-right: 10px; 
+            white-space: nowrap;
+            text-align: left;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        /* Labeling for responsive table */
+        .styled-table td:nth-of-type(1):before { content: "No"; }
+        .styled-table td:nth-of-type(2):before { content: "Nama Admin"; }
+        .styled-table td:nth-of-type(3):before { content: "Username"; }
+        .styled-table td:nth-of-type(4):before { content: "Ekskul"; }
+        .styled-table td:nth-of-type(5):before { content: "Dibuat Pada"; }
+        .styled-table td:nth-of-type(6) { text-align: left; }
+        .styled-table td:nth-of-type(6):before { content: "Aksi"; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="pic/logo1.png" class="sidebar-logo" onerror="this.src='https://placehold.co/60x60/0D47A1/fff?text=Logo';">
+            <h2>Superadmin</h2>
+        </div>
+
+        <nav class="sidebar-menu">
+            <a href="dashboard_superadmin.php" class="menu-item">🏠 Dashboard</a>
+            <a href="kelola_admin.php" class="menu-item active">👥 Kelola Admin</a>
+            <a href="kelola_ekskul.php" class="menu-item">📚 Kelola Ekskul</a>
+            <a href="data_pendaftar.php" class="menu-item">👤 Data Akun Siswa</a> <!-- BARU DITAMBAHKAN -->
+            <a href="logout.php" class="menu-item logout">🚪 Logout</a>
+        </nav>
+    </aside>
+
+    <main class="content-area">
+
+        <div class="content-card">
+            <h1 class="title">Kelola Admin Ekskul</h1>
+            <p class="subtitle">Anda dapat menambah, mengubah, atau menghapus admin ekskul.</p>
+        </div>
+
+        <div class="table-card">
+
+            <div class="table-header">
+                <h2>Daftar Admin</h2>
+                <a href="tambah_admin.php" class="btn-add">+ Tambah Admin</a>
+            </div>
+            
+            <?php if (isset($error_message)): ?>
+                <p style="color: red; padding: 10px 0;"><?= htmlspecialchars($error_message) ?></p>
+            <?php endif; ?>
+
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Admin</th>
+                        <th>Username</th>
+                        <th>Ekskul</th>
+                        <th>Dibuat Pada</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php 
+                $no = 1; 
+                if ($result && $result->num_rows > 0):
+                    while ($r = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= htmlspecialchars($r['nama_admin']) ?></td>
+                        <td><?= htmlspecialchars($r['username']) ?></td>
+                        <td><?= htmlspecialchars($r['ekskul_dinaungi']) ?></td>
+                        <td><?= htmlspecialchars($r['created_at']) ?></td>
+                        <td class="action-buttons">
+                            <a href="edit_admin.php?id=<?= $r['id_admin'] ?>" class="btn-edit">✏️ Edit</a>
+                            <a href="hapus_admin.php?id=<?= $r['id_admin'] ?>" class="btn-delete" onclick="return confirm('Yakin hapus admin ini?')">🗑️ Hapus</a>
+                        </td>
+                    </tr>
+                <?php endwhile; 
+                else: ?>
+                    <tr>
+                        <td colspan="6" style="text-align: center;">Tidak ada data admin ditemukan.</td>
+                    </tr>
+                <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

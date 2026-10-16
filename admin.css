@@ -1,0 +1,15 @@
+.admin-section-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.table-actions a {
+    padding: 6px 12px;
+    border-radius: 5px;
+    background: var(--blue);
+    color: white;
+}
+.table-actions a:hover {
+    background: var(--blue-hover);
+}

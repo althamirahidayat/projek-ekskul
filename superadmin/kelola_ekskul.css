@@ -1,0 +1,139 @@
+/* PAGE WRAPPER */
+.wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* HEADER */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    color: var(--text-dark);
+}
+
+.btn-back {
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: .2s;
+}
+
+.btn-back:hover {
+    background: #e1e4ee;
+    transform: translateX(-3px);
+}
+
+/* BUTTON TAMBAH EKSUL */
+.btn-add {
+    background: #31c654;
+    color: white;
+    padding: 12px 18px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: .25s;
+}
+
+.btn-add:hover {
+    background: #27a645;
+    transform: translateY(-3px);
+}
+
+/* TABLE CARD */
+.table-card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+}
+
+/* TABLE STYLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    background: #f0f2fa;
+    padding: 14px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+table td {
+    padding: 14px;
+    text-align: center;
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table tr:hover td {
+    background: #f7f7fc;
+}
+
+/* THUMB IMAGE */
+.thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+/* LINK BUTTON */
+.btn-link {
+    padding: 8px 12px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: .2s;
+}
+
+.btn-link:hover {
+    background: var(--primary-hover);
+}
+
+/* EDIT BUTTON */
+.btn-edit {
+    padding: 8px 12px;
+    background: #ffcc00;
+    color: #4a3d00;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.btn-edit:hover {
+    background: #e6b800;
+    transform: translateY(-2px);
+}
+
+/* DELETE BUTTON */
+.btn-delete {
+    padding: 8px 12px;
+    background: #ff4d4d;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.btn-delete:hover {
+    background: #d93636;
+    transform: translateY(-2px);
+}

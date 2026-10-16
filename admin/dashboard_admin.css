@@ -1,0 +1,110 @@
+/* =========================
+   DASHBOARD ADMIN EKSUL
+========================= */
+
+.content-area {
+    margin-left: 250px;
+    padding: 40px;
+}
+
+/* ====== GREETING ====== */
+.greet-box {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px #00000012;
+    margin-bottom: 30px;
+    text-align: left;
+    border: 1px solid #e3e7ef;
+}
+
+.greet-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f2d3d;
+    margin-bottom: 5px;
+}
+
+.greet-title .name {
+    color: var(--primary);
+}
+
+.greet-sub {
+    color: #4a5568;
+    font-size: 16px;
+}
+
+
+/* ====== CARD INFORMASI EKSKUL ====== */
+.info-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    border: 1px solid #e1e4ea;
+    transition: .25s;
+    max-width: 900px;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 18px;
+}
+
+.info-flex {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+/* IMAGE CARD */
+.info-image img {
+    width: 260px;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+}
+
+.no-img {
+    width: 260px;
+    height: 180px;
+    background: #f1f4fa;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7a7f87;
+    font-size: 14px;
+    border: 1px dashed #cbd3df;
+}
+
+/* DESCRIPTION */
+.info-desc {
+    flex: 1;
+    min-width: 280px;
+}
+
+.info-desc p {
+    font-size: 15px;
+    color: hsl(216, 22%, 24%);
+    line-height: 1.55;
+}
+
+
+/* ===== SIDEBAR ACTIVE ===== */
+.menu-item.active {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    font-weight: 600;
+}
+.menu-item.active:hover {
+    transform: translateX(5px);
+}

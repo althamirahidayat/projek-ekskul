@@ -1,0 +1,92 @@
+/* ===== LOGIN ADMIN EXCLUSIVE STYLE ===== */
+
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eef1f5; /* abu soft */
+    padding: 20px;
+}
+
+.login-card {
+    width: 360px;
+    background: #ffffff;
+    padding: 28px 32px;
+    border-radius: 14px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 22px;
+    color: #1f2d3d;
+    font-weight: 600;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 10px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #d0d4da;
+    margin-top: 6px;
+    font-size: 15px;
+    background: #f8fafc;
+    transition: 0.2s ease;
+}
+
+input:focus {
+    border-color: #4a7bd8;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(74,123,216,0.4);
+    outline: none;
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px;
+    background: #4a7bd8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-submit:hover {
+    background: #3c6ac3;
+    transform: translateY(-2px);
+}
+
+.back-link {
+    display: block;
+    margin-top: 18px;
+    font-size: 14px;
+    text-align: center;
+    color: #4a7bd8;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.back-link:hover {
+    color: #244f9a;
+    text-decoration: underline;
+}

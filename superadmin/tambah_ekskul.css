@@ -1,0 +1,86 @@
+/* WRAPPER */
+.form-container {
+    max-width: 480px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.form-container h1 {
+    font-size: 28px;
+    color: var(--text-dark);
+    margin-bottom: 18px;
+}
+
+/* CARD */
+.card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* LABEL */
+label {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-medium);
+}
+
+/* INPUT / TEXTAREA */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    background: #fff;
+    font-size: 14px;
+    resize: none;
+    transition: .2s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(45,102,255,0.2);
+    outline: none;
+}
+
+/* SUBMIT BUTTON */
+.btn-submit {
+    margin-top: 10px;
+    padding: 12px;
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.btn-submit:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* BACK BUTTON */
+.btn-back {
+    display: block;
+    margin-top: 12px;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: var(--radius);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: .25s;
+}
+
+.btn-back:hover {
+    background: #e1e4ee;
+    transform: translateY(-2px);
+}
