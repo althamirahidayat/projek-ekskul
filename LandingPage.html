@@ -208,19 +208,23 @@
 
     /* --- RESPONSIVENESS (Mobile/Tablet) --- */
     @media (max-width: 900px) {
-      body { padding: 10px; }
+      body { padding: 15px 10px; }
       .main-container {
         flex-direction: column;
         height: auto;
         min-height: auto;
         max-width: 500px;
-        margin: 20px auto;
+        width: 100%;
+        margin: 10px auto;
         box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
       }
       
       .login-section {
         order: 2; /* Pindah login ke bawah slider */
         padding: 30px 20px;
+        min-width: unset;
+        width: 100%;
+        box-sizing: border-box;
       }
       
       .slider-section {
@@ -229,6 +233,7 @@
         order: 1; /* Pindah slider ke atas */
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
+        border-bottom-left-radius: 0;
       }
 
       .welcome-text h1 { font-size: 1.6rem; }
@@ -237,8 +242,47 @@
     }
     
     @media (max-width: 500px) {
-      .welcome-text h1 { font-size: 1.4rem; }
-      .welcome-text h2 { font-size: 1rem; }
+      body { padding: 10px 8px; }
+      .login-section {
+        padding: 24px 16px;
+      }
+      .slider-section {
+        height: 200px;
+      }
+      .welcome-text h1 { font-size: 1.35rem; }
+      .welcome-text h2 { font-size: 0.95rem; margin-bottom: 20px; }
+      .role-buttons {
+        max-width: 100%;
+        gap: 12px;
+      }
+      .btn-role {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .slider-section {
+        height: 170px;
+      }
+      .slide-caption {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+      }
+      .login-section {
+        padding: 20px 12px;
+      }
+      .logo {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 15px;
+      }
+      .welcome-text h1 { font-size: 1.2rem; }
+      .welcome-text h2 { font-size: 0.85rem; margin-bottom: 15px; }
+      .btn-role {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>

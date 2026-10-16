@@ -111,14 +111,47 @@
 }
 
 .superadmin-card {
-    background: var(--white);
+    background: #ffffff;
     padding: 20px;
     border-radius: 12px;
-    border: 2px solid var(--light-gray);
+    border: 2px solid var(--border-color, #d6d7db);
     transition: 0.2s;
+    box-sizing: border-box;
 }
 
 .superadmin-card:hover {
-    border-color: var(--blue);
+    border-color: var(--primary, #2d66ff);
     transform: translateY(-3px);
+}
+
+@media (max-width: 480px) {
+    .login-superadmin-wrapper {
+        padding: 15px;
+        height: auto;
+        min-height: 100vh;
+    }
+    .login-card {
+        padding: 25px 18px;
+        border-radius: 16px;
+    }
+    .login-card h1 {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+    .superadmin-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 375px) {
+    .login-card {
+        padding: 20px 14px;
+    }
+    .login-card h1 {
+        font-size: 20px;
+    }
+    .login-card input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
 }

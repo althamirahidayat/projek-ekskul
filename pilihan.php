@@ -574,34 +574,37 @@ if (isset($conn)) {
                 left: -9999px;
             }
             
-            tr { border: 1px solid #ccc; margin-bottom: 10px; border-radius: var(--radius); overflow: hidden; }
+            tr { 
+                border: 1px solid #e0e0e0; 
+                margin-bottom: 12px; 
+                border-radius: var(--radius); 
+                overflow: hidden; 
+                background: #ffffff;
+            }
             
             td { 
                 border: none;
-                border-bottom: 1px solid #eee; 
-                position: relative;
-                padding-left: 50%; 
+                border-bottom: 1px solid #f0f0f0; 
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 14px;
                 text-align: right;
+                gap: 10px;
+                box-sizing: border-box;
+            }
+            td:last-child {
+                border-bottom: none;
             }
             
             td:before { 
-                position: absolute;
-                top: 0;
-                left: 6px;
-                width: 45%; 
-                padding: 12px 0;
-                white-space: nowrap;
                 content: attr(data-label);
                 font-weight: 700;
                 text-align: left;
                 color: var(--color-primary);
+                font-size: 0.85rem;
+                flex-shrink: 0;
             }
-            
-            /* Menyesuaikan label untuk mode mobile */
-            td:nth-of-type(1):before { content: "Ekskul"; }
-            td:nth-of-type(2):before { content: "Status"; }
-            td:nth-of-type(3):before { content: "Tanggal"; }
-            td:nth-of-type(4):before { content: "Bukti"; }
 
             .close-btn {
                 font-size: 1.2rem;
@@ -610,9 +613,73 @@ if (isset($conn)) {
             }
         }
 
-        @media (max-width: 500px) {
-             .ekskul-grid {
-                grid-template-columns: 1fr; 
+        @media (max-width: 480px) {
+            .content-area {
+                padding: 15px 10px;
+            }
+            .content-card {
+                padding: 20px 14px;
+            }
+            .content-card h2 {
+                font-size: 1.3rem;
+            }
+            .halo-text {
+                font-size: 0.95rem;
+                padding: 12px 14px;
+            }
+            .ekskul-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .ekskul-card h3 {
+                font-size: 0.9rem;
+                padding: 10px 6px;
+            }
+            .ekskul-thumb {
+                height: 110px;
+            }
+            td {
+                padding: 9px 12px;
+                font-size: 0.85rem;
+            }
+            td:before {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .sidebar {
+                padding: 10px 0;
+            }
+            .sidebar-logo {
+                width: 34px;
+                height: 34px;
+                margin-right: 10px;
+            }
+            .menu-item {
+                padding: 7px 10px;
+                font-size: 0.8rem;
+            }
+            .content-area {
+                padding: 12px 8px;
+            }
+            .content-card {
+                padding: 15px 10px;
+                border-radius: 8px;
+            }
+            .ekskul-grid {
+                grid-template-columns: 1fr;
+            }
+            .ekskul-thumb {
+                height: 130px;
+            }
+            .halo-text {
+                font-size: 0.88rem;
+                padding: 10px 12px;
+            }
+            td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
             }
         }
     </style>

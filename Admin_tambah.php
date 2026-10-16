@@ -107,15 +107,132 @@ PHP;
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tambah Ekskul</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="admin.css">
 <link rel="stylesheet" href="global.css">
 <style>
-    .form-container { width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
-    input, textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
-    .btn-submit, .btn-kembali { padding: 8px 15px; margin: 2px; text-decoration: none; }
-    .btn-submit { background-color: #198754; color: #fff; border: none; }
-    .btn-kembali { background-color: #6c757d; color: #fff; border: none; }
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #f4f7fb;
+        margin: 0;
+        padding: 30px 15px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        box-sizing: border-box;
+    }
+    .form-container { 
+        width: 100%; 
+        max-width: 500px; 
+        margin: auto; 
+        padding: 30px; 
+        background: #ffffff;
+        border: 1px solid #e5e7eb; 
+        border-radius: 14px; 
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        box-sizing: border-box;
+    }
+    .form-container h1 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #1f1f25;
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 6px;
+    }
+    input[type="text"], input[type="url"], textarea { 
+        width: 100%; 
+        padding: 10px 12px; 
+        margin-bottom: 15px; 
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        box-sizing: border-box;
+        transition: border-color 0.2s;
+    }
+    input[type="text"]:focus, input[type="url"]:focus, textarea:focus {
+        border-color: #2d66ff;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(45, 102, 255, 0.15);
+    }
+    input[type="file"] {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        box-sizing: border-box;
+    }
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+    .btn-submit, .btn-kembali { 
+        display: inline-block;
+        padding: 11px 20px; 
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none; 
+        text-align: center;
+        box-sizing: border-box;
+        transition: background-color 0.2s;
+    }
+    .btn-submit { 
+        background-color: #198754; 
+        color: #fff; 
+        border: none; 
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .btn-submit:hover {
+        background-color: #157347;
+    }
+    .btn-kembali { 
+        background-color: transparent; 
+        color: #6c757d; 
+        border: 1px solid #d1d5db; 
+        width: 100%;
+    }
+    .btn-kembali:hover {
+        background-color: #f3f4f6;
+        color: #1f1f25;
+    }
+    @media (max-width: 480px) {
+        body {
+            padding: 16px 10px;
+        }
+        .form-container {
+            padding: 20px 15px;
+            border-radius: 10px;
+        }
+        .form-container h1 {
+            font-size: 1.25rem;
+        }
+        input[type="text"], input[type="url"], textarea {
+            padding: 9px 10px;
+            font-size: 0.9rem;
+        }
+    }
+    @media (max-width: 375px) {
+        body {
+            padding: 12px 6px;
+        }
+        .form-container {
+            padding: 16px 12px;
+        }
+    }
 </style>
 </head>
 <body>

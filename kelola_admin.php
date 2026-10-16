@@ -219,6 +219,12 @@ if ($result === FALSE) {
     }
 
     /* Responsive adjustments */
+    @media (max-width: 1024px) {
+        .content-area {
+            padding: 25px 20px;
+        }
+    }
+
     @media (max-width: 768px) {
         .layout {
             flex-direction: column;
@@ -227,15 +233,23 @@ if ($result === FALSE) {
             position: relative;
             width: 100%;
             height: auto;
-            padding: 10px 0;
+            padding: 10px 15px;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         .sidebar-header {
             margin-bottom: 0;
             display: flex;
             align-items: center;
+            padding: 0;
+        }
+        .sidebar-logo {
+            width: 45px;
+            height: 45px;
+            margin-bottom: 0;
         }
         .sidebar-header h2 {
             display: none; 
@@ -245,15 +259,39 @@ if ($result === FALSE) {
             flex-direction: row;
             overflow-x: auto;
             gap: 5px;
-            padding: 0 10px;
+            padding: 0 5px;
+            align-items: center;
         }
         .menu-item {
             padding: 8px 12px;
             white-space: nowrap;
+            font-size: 0.85rem;
+            border-left: none;
+            border-bottom: 3px solid transparent;
+        }
+        .menu-item.active {
+            border-left: none;
+            border-bottom: 3px solid var(--accent-yellow);
+        }
+        .menu-item.logout {
+            margin-top: 0;
+            border-top: none;
+            background-color: var(--accent-red);
+            border-radius: 6px;
+            color: white;
         }
         .content-area {
             margin-left: 0; 
+            width: 100%;
             padding: 20px 15px;
+            box-sizing: border-box;
+        }
+        .content-card, .table-card {
+            padding: 20px 16px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 1.5rem;
         }
         .styled-table, .styled-table thead, .styled-table tbody, .styled-table th, .styled-table td, .styled-table tr { 
             display: block; 
@@ -264,28 +302,39 @@ if ($result === FALSE) {
             left: -9999px;
         }
         .styled-table tr { 
-            border: 1px solid #ccc;
+            border: 1px solid #e5e7eb;
             margin-bottom: 15px;
-            border-radius: 8px;
-            overflow: hidden;
+            border-radius: 12px;
+            background: #fff;
+            padding: 10px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            box-sizing: border-box;
         }
         .styled-table td { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border: none;
-            border-bottom: 1px solid #eee; 
-            position: relative;
-            padding-left: 50%; 
+            border-bottom: 1px dashed #eee; 
+            padding: 8px 0;
             text-align: right;
+            font-size: 0.85rem;
+            word-break: break-word;
+        }
+        .styled-table td:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
         .styled-table td:before { 
-            position: absolute;
-            top: 0;
-            left: 6px;
-            width: 45%; 
-            padding-right: 10px; 
+            position: static;
+            width: auto;
             white-space: nowrap;
             text-align: left;
             font-weight: 700;
             color: var(--primary-color);
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-size: 0.8rem;
         }
         /* Labeling for responsive table */
         .styled-table td:nth-of-type(1):before { content: "No"; }
@@ -293,8 +342,56 @@ if ($result === FALSE) {
         .styled-table td:nth-of-type(3):before { content: "Username"; }
         .styled-table td:nth-of-type(4):before { content: "Ekskul"; }
         .styled-table td:nth-of-type(5):before { content: "Dibuat Pada"; }
-        .styled-table td:nth-of-type(6) { text-align: left; }
-        .styled-table td:nth-of-type(6):before { content: "Aksi"; }
+        .styled-table td:nth-of-type(6) { 
+            justify-content: flex-end; 
+        }
+        .styled-table td:nth-of-type(6):before { 
+            content: "Aksi"; 
+            margin-right: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .content-area {
+            padding: 16px 10px;
+        }
+        .content-card, .table-card {
+            padding: 16px 12px;
+            border-radius: 10px;
+        }
+        .title {
+            font-size: 1.3rem;
+        }
+        .table-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .btn-add {
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .menu-item {
+            padding: 6px 10px;
+            font-size: 0.8rem;
+        }
+        .action-buttons a {
+            padding: 5px 8px;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 375px) {
+        .content-area {
+            padding: 12px 6px;
+        }
+        .title {
+            font-size: 1.15rem;
+        }
+        .styled-table tr {
+            padding: 8px 10px;
+        }
     }
 </style>
 </head>

@@ -373,7 +373,7 @@ unset($_SESSION['profile_message_type']);
         
         @media (max-width: 550px) {
             .card h1 {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
             .form-actions {
                 flex-direction: column-reverse; 
@@ -383,6 +383,62 @@ unset($_SESSION['profile_message_type']);
             .form-actions a {
                 max-width: 100%;
                 flex-grow: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-area {
+                padding: 16px 10px;
+            }
+            .card {
+                padding: 24px 16px;
+                border-radius: 12px;
+            }
+            .card h1 {
+                font-size: 1.45rem;
+                margin-bottom: 18px;
+            }
+            .form-group label {
+                font-size: 0.9rem;
+            }
+            .form-group input {
+                padding: 10px 12px;
+                font-size: 0.95rem;
+            }
+            .btn-submit, .btn-back {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .sidebar-logo {
+                width: 34px;
+                height: 34px;
+                margin-right: 10px;
+            }
+            .menu-item {
+                padding: 7px 10px;
+                font-size: 0.8rem;
+            }
+            .content-area {
+                padding: 12px 6px;
+            }
+            .card {
+                padding: 18px 12px;
+                border-radius: 10px;
+            }
+            .card h1 {
+                font-size: 1.25rem;
+                margin-bottom: 15px;
+            }
+            .form-group input {
+                padding: 9px 10px;
+                font-size: 0.88rem;
+            }
+            .btn-submit, .btn-back {
+                padding: 10px 12px;
+                font-size: 0.9rem;
             }
         }
     </style>

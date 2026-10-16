@@ -47,24 +47,27 @@ if (!empty($_SESSION['admin_id']) && ($_SESSION['role'] ?? '') === 'admin') {
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 20px 15px;
     font-family: "Inter", sans-serif;
     /* Background gradient modern blue */
     background: linear-gradient(135deg, #eaf1ff, #c7d4ff);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 /* CARD */
 .login-card {
-    width: 380px;
+    width: 100%;
+    max-width: 400px;
     background: var(--card-bg);
     padding: 32px;
     border-radius: 18px;
     box-shadow: 0 8px 28px rgba(0,0,0,0.12);
     backdrop-filter: blur(6px);
+    box-sizing: border-box;
     animation: fadeIn 0.6s ease;
 }
 
@@ -112,6 +115,7 @@ body {
     font-size: 15px;
     transition: 0.2s;
     color: var(--text-dark);
+    box-sizing: border-box;
     /* Menghilangkan panah default pada select di beberapa browser */
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -140,6 +144,7 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: 0.25s ease;
+    box-sizing: border-box;
 }
 
 .btn-login:hover {
@@ -165,10 +170,45 @@ body {
 }
 
 /* Responsiveness */
-@media (max-width: 450px) {
+@media (max-width: 480px) {
     .login-card {
-        width: 90%;
-        padding: 25px;
+        padding: 24px 18px;
+        border-radius: 14px;
+    }
+    .title {
+        font-size: 24px;
+    }
+    .subtitle {
+        font-size: 13.5px;
+        margin-bottom: 22px;
+    }
+}
+
+@media (max-width: 375px) {
+    body {
+        padding: 15px 10px;
+    }
+    .login-card {
+        padding: 20px 14px;
+        border-radius: 12px;
+    }
+    .title {
+        font-size: 21px;
+    }
+    .subtitle {
+        font-size: 12.5px;
+        margin-bottom: 18px;
+    }
+    .input-group {
+        margin-bottom: 15px;
+    }
+    .input-group input, .input-group select {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    .btn-login {
+        padding: 11px;
+        font-size: 15px;
     }
 }
 

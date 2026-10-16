@@ -372,6 +372,8 @@ input[type="file"] {
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     max-width: 350px;
+    width: 90%;
+    box-sizing: border-box;
     animation: fadeIn 0.3s;
 }
 
@@ -380,6 +382,7 @@ input[type="file"] {
     margin-bottom: 20px;
     font-weight: 600;
     color: var(--text-dark);
+    word-break: break-word;
 }
 
 .message-content button {
@@ -396,6 +399,73 @@ input[type="file"] {
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 25px 15px;
+    }
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 18px;
+    }
+    .edit-card {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 16px 12px;
+    }
+    h1 {
+        font-size: 1.25rem;
+        margin-bottom: 14px;
+        word-break: break-word;
+    }
+    .edit-card {
+        padding: 18px 14px;
+        border-radius: 12px;
+    }
+    input[type="text"],
+    input[type="url"],
+    textarea {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+    input[type="file"] {
+        max-width: 100%;
+        font-size: 0.85rem;
+    }
+    .btn-submit {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+    .message-content {
+        padding: 20px 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    body {
+        padding: 12px 8px;
+    }
+    h1 {
+        font-size: 1.15rem;
+    }
+    .edit-card {
+        padding: 14px 10px;
+    }
+    input[type="text"],
+    input[type="url"],
+    textarea {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+    .btn-submit {
+        font-size: 0.9rem;
+        padding: 11px 14px;
+    }
 }
 </style>
 

@@ -379,11 +379,18 @@ h2 {
         position: relative;
         width: 100%;
         height: auto;
-        padding: 10px 0;
+        padding: 10px 15px;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
+        align-items: center;
         box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         z-index: 10;
+        box-sizing: border-box;
+    }
+    .sidebar > div {
+        display: flex;
+        align-items: center;
+        overflow-x: auto;
     }
     .sidebar-header {
         display: none; 
@@ -391,11 +398,12 @@ h2 {
     .sidebar-menu {
         flex-direction: row;
         overflow-x: auto;
-        width: 100%;
+        width: auto;
         margin-top: 0;
+        gap: 5px;
     }
     .menu-item {
-        padding: 10px 15px;
+        padding: 8px 12px;
         border-left: none;
         border-bottom: 3px solid transparent;
         flex-shrink: 0;
@@ -406,55 +414,157 @@ h2 {
         border-left: none;
     }
     .logout-btn {
-        display: none; /* Sembunyikan di mobile, menu utama lebih diprioritaskan */
+        display: flex;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        margin-top: 0;
+        border-radius: 6px;
+        align-self: center;
+        flex-shrink: 0;
     }
     
     .content {
         margin-left: 0;
         width: 100%;
-        padding: 20px;
+        padding: 20px 15px;
     }
-    /* Tambahkan margin atas untuk konten agar tidak terlalu mepet dengan sidebar di mobile */
     .content > * {
-        margin-top: 20px;
+        margin-top: 15px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .status-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        box-shadow: none;
+        border-radius: 0;
+        margin: 15px 0;
+    }
+    .status-filter a {
+        flex: 1 1 auto;
+        text-align: center;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
     }
 
     .data-table {
         display: block;
-        overflow-x: auto;
-        white-space: nowrap;
+        width: 100%;
+        box-shadow: none;
+        background: transparent;
     }
     .data-table thead {
         display: none;
     }
-    .data-table tbody, .data-table tr, .data-table td {
+    .data-table tbody {
         display: block;
         width: 100%;
     }
     .data-table tr {
+        display: block;
+        width: 100%;
         margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        background: var(--bg-card);
+        padding: 12px 14px;
+        box-sizing: border-box;
+        box-shadow: var(--shadow-light);
     }
     .data-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         border-bottom: 1px dashed #eee;
         text-align: right;
-        padding: 10px 15px;
-        position: relative;
+        padding: 8px 0;
+        white-space: normal;
+        word-break: break-word;
+        font-size: 0.85rem;
+    }
+    .data-table td:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
     }
     .data-table td::before {
         content: attr(data-label);
-        position: absolute;
-        left: 15px;
         font-weight: 700;
         color: var(--text-dark);
         text-transform: uppercase;
         font-size: 0.75rem;
+        text-align: left;
+        margin-right: 12px;
+        flex-shrink: 0;
     }
-    /* Tambahan style untuk No Telp di mobile */
-    .data-table td[data-label="No Telp"] a {
-        font-weight: 700;
-        color: var(--primary);
+    .action-group {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+    .message-content {
+        max-width: 350px;
+        width: 90%;
+        padding: 20px 16px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 16px 10px;
+    }
+    h1 {
+        font-size: 1.35rem;
+    }
+    h2 {
+        font-size: 0.9rem;
+    }
+    .menu-item {
+        padding: 7px 10px;
+        font-size: 0.8rem;
+    }
+    .logout-btn {
+        padding: 7px 10px;
+        font-size: 0.8rem;
+    }
+    .status-filter a {
+        padding: 7px 8px;
+        font-size: 0.8rem;
+    }
+    .data-table td {
+        font-size: 0.8rem;
+        padding: 7px 0;
+    }
+    .btn-action {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .content {
+        padding: 12px 8px;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+    .status-filter {
+        flex-direction: column;
+    }
+    .status-filter a {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .data-table tr {
+        padding: 10px;
     }
 }
 </style>

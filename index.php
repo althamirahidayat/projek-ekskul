@@ -167,10 +167,72 @@ include 'koneksi.php';
       }
       .auth-card {
         padding: 30px 20px;
-        border-radius: 8px;
+        border-radius: 10px;
       }
       .auth-title {
         font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 15px 10px;
+      }
+      .auth-card {
+        padding: 25px 16px;
+      }
+      .auth-title {
+        font-size: 1.55rem;
+      }
+      .auth-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+      .auth-logo {
+        width: 68px;
+        height: 68px;
+        margin-bottom: 12px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      body {
+        padding: 10px 6px;
+      }
+      .auth-card {
+        padding: 20px 12px;
+        border-radius: 8px;
+      }
+      .auth-title {
+        font-size: 1.35rem;
+      }
+      .auth-subtitle {
+        font-size: 0.82rem;
+        margin-bottom: 16px;
+      }
+      .auth-logo {
+        width: 58px;
+        height: 58px;
+      }
+      .auth-form {
+        gap: 12px;
+      }
+      .auth-form label {
+        font-size: 0.85rem;
+      }
+      .auth-form input[type="text"],
+      .auth-form input[type="tel"],
+      .auth-form input[type="email"],
+      .auth-form input[type="password"] {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+      }
+      .auth-btn {
+        padding: 12px;
+        font-size: 0.95rem;
+      }
+      .auth-switch {
+        font-size: 0.85rem;
       }
     }
   </style>

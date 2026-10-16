@@ -7,3 +7,10 @@
 h1, h2 {
     margin-bottom: 20px;
 }
+
+@media (max-width: 480px) {
+    .ekskul-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}

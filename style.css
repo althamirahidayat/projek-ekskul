@@ -8,9 +8,9 @@
 
 body,
 html {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-  overflow-y: visible;
+  overflow-x: hidden;
   background: url("web ekskul pic/smkn1bekazih.jpeg")
     no-repeat center center fixed;
   background-size: cover;
@@ -598,17 +598,46 @@ header h2 {
   .content-box {
     flex-direction: column;
     padding: 30px 25px;
+    gap: 25px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .ekskul-img {
     width: 100%;
-    max-width: 350px;
-    margin-bottom: 25px;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto 15px auto;
   }
 
   .ekskul-desc {
     text-align: center;
     max-width: 100%;
+    width: 100%;
+  }
+
+  .ekskul-desc form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ekskul-desc form input[type="file"] {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px 25px;
+  }
+  .header-left {
+    gap: 15px;
+  }
+  .title {
+    font-size: 2.3rem;
+    margin: 35px 15px 25px;
   }
 }
 
@@ -616,23 +645,90 @@ header h2 {
   header {
     flex-direction: column;
     gap: 15px;
-    padding: 20px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .profile {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+    padding: 4px;
+  }
+
+  header h1 {
+    font-size: 1.25rem;
+  }
+
+  header h2 {
+    font-size: 0.9rem;
   }
 
   .btn-home {
     width: 100%;
+    max-width: 220px;
     text-align: center;
+    padding: 10px 18px;
+    font-size: 0.9rem;
   }
 
   .title {
-    font-size: 2rem;
-    letter-spacing: 1.5px;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin: 25px 10px 20px;
+  }
+
+  .content-box {
+    padding: 22px 16px;
+    border-radius: 16px;
+  }
+
+  .ekskul-desc p {
+    font-size: 0.95rem;
+  }
+
+  .btn-form {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 0.95rem;
   }
 
   .btn-daftar {
     width: 100%;
-    padding: 16px 0;
-    font-size: 1.2rem;
+    max-width: 280px;
+    padding: 13px 0;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  header {
+    padding: 12px 10px;
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  header h1 {
+    font-size: 1.1rem;
+  }
+  header h2 {
+    font-size: 0.8rem;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .content-box {
+    padding: 16px 12px;
+  }
+  .btn-daftar {
+    font-size: 0.95rem;
+    padding: 11px 0;
   }
 }
 /* Efek input error */
@@ -874,12 +970,15 @@ header p {
 
 /* ================= Table ================= */
 .table-container {
-  overflow-x: visible;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   background: rgba(255,255,255,0.95);
   border-radius: 12px;
   padding: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   color: #222;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 table {
@@ -926,12 +1025,15 @@ tr:hover {
       font-size: 1.2rem;
   }
   .ekskul-container {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 15px;
-      padding: 0 20px;
+      padding: 0 15px;
   }
   table, th, td {
       font-size: 0.9rem;
+  }
+  table {
+      min-width: 500px;
   }
 }
 
@@ -939,8 +1041,17 @@ tr:hover {
   .dashboard-container { padding: 20px 10px; }
   header h1 { font-size: 1.4rem; }
   header p { font-size: 0.9rem; }
+  .ekskul-container {
+      grid-template-columns: 1fr;
+  }
   .ekskul-btn { font-size: 0.9rem; padding: 12px 6px; }
   th, td { font-size: 0.8rem; padding: 8px; }
+}
+
+@media (max-width: 375px) {
+  .dashboard-container { padding: 15px 8px; }
+  .table-container { padding: 10px; }
+  th, td { font-size: 0.75rem; padding: 6px; }
 }
 
 /* ================= Dark Mode & Effects ================= */
@@ -1176,21 +1287,38 @@ body.dark-mode {
 @media (max-width: 768px) {
   .form-container {
     padding: 1.5rem 2rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .table-admin-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
   }
 
   .table-admin-container table {
     font-size: 0.9rem;
+    min-width: 600px;
   }
 }
 
 @media (max-width: 480px) {
   .form-container {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+  }
+
+  .form-container h1 {
+    font-size: 1.6rem;
   }
 
   .btn-submit, .btn-kembali {
     font-size: 0.95rem;
     padding: 12px 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .table-admin-container table {
@@ -1198,7 +1326,26 @@ body.dark-mode {
   }
 }
 
+@media (max-width: 375px) {
+  .form-container {
+    padding: 1rem 0.85rem;
+  }
+
+  .form-container h1 {
+    font-size: 1.35rem;
+  }
+
+  .form-container input[type="text"],
+  .form-container input[type="url"],
+  .form-container input[type="file"],
+  .form-container textarea {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
 .form-container {
   overflow: visible;
 }
+
 

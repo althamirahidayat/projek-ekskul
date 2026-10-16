@@ -237,8 +237,15 @@ try {
     /* Responsive Design */
     .table-responsive {
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
+    @media (max-width: 1024px) {
+        .content-area {
+            padding: 25px 20px;
+        }
+    }
+
     @media (max-width: 768px) {
         .layout {
             flex-direction: column;
@@ -247,9 +254,12 @@ try {
             position: relative;
             width: 100%;
             height: auto;
+            padding: 10px 15px;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         .sidebar-header {
             display: none; 
@@ -257,20 +267,70 @@ try {
         .sidebar-menu {
             display: flex;
             flex-direction: row;
-            gap: 10px;
-            padding: 0 10px;
+            gap: 5px;
+            padding: 0 5px;
             overflow-x: auto;
+            align-items: center;
         }
         .menu-item {
             padding: 8px 12px;
             white-space: nowrap;
+            font-size: 0.85rem;
+            border-left: none;
+            border-bottom: 3px solid transparent;
+        }
+        .menu-item.active {
+            border-left: none;
+            border-bottom: 3px solid #FFC107;
+        }
+        .menu-item.logout {
+            margin-top: 0;
+            border-top: none;
+            background-color: var(--accent-red);
+            border-radius: 6px;
+            color: white;
         }
         .content-area {
             margin-left: 0; 
+            width: 100%;
             padding: 20px 15px;
+            box-sizing: border-box;
+        }
+        .data-card {
+            padding: 20px 16px;
+            margin-bottom: 20px;
+        }
+        .data-card h1 {
+            font-size: 1.5rem;
         }
         .styled-table {
             font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .content-area {
+            padding: 16px 10px;
+        }
+        .data-card {
+            padding: 16px 12px;
+            border-radius: 10px;
+        }
+        .data-card h1 {
+            font-size: 1.3rem;
+        }
+        .menu-item {
+            padding: 6px 10px;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 375px) {
+        .content-area {
+            padding: 12px 6px;
+        }
+        .data-card h1 {
+            font-size: 1.15rem;
         }
     }
 </style>

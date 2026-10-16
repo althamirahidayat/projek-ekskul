@@ -312,6 +312,14 @@ body {
 }
 
 /* Responsiveness */
+@media (max-width: 1024px) {
+    .content-area {
+        margin-left: 240px;
+        padding: 30px 20px;
+        width: calc(100% - 240px);
+    }
+}
+
 @media (max-width: 768px) {
     .layout {
         flex-direction: column;
@@ -322,9 +330,10 @@ body {
         height: auto;
         padding: 10px 0;
         flex-direction: row;
-        justify-content: space-around;
+        align-items: center;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
         z-index: 10;
+        box-sizing: border-box;
     }
     .sidebar-header {
         display: none; 
@@ -332,37 +341,48 @@ body {
     .sidebar-nav {
         flex-direction: row;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         width: 100%;
         margin-top: 0;
-        justify-content: center;
+        justify-content: flex-start;
+        padding: 0 10px;
+        gap: 6px;
     }
     .menu-item {
-        padding: 10px 15px;
+        padding: 9px 13px;
         border-left: none;
         border-bottom: 3px solid transparent;
         flex-shrink: 0;
         font-size: 0.85rem;
+        border-radius: 6px;
     }
     .menu-item.active {
         border-bottom: 3px solid #FFD700;
         border-left: none;
     }
     .menu-item.logout-item {
-        display: none; /* Sembunyikan logout di mobile, agar tidak terlalu padat */
+        display: inline-flex;
+        margin-top: 0;
+        margin-left: auto;
+        border-bottom: none;
+        background: #c0392b;
+        color: white;
     }
     
     .content-area {
         margin-left: 0;
         width: 100%;
-        padding: 20px;
+        padding: 20px 15px;
+        box-sizing: border-box;
     }
     
     .info-grid {
         grid-template-columns: 1fr; /* Stacked columns on mobile */
+        gap: 12px;
     }
     .info-grid .label, .info-grid .value {
         border-bottom: none;
-        padding: 5px 0;
+        padding: 4px 0;
     }
     .info-grid > div {
         border-bottom: 1px dashed #f0f0f0;
@@ -372,7 +392,7 @@ body {
         padding-top: 0;
     }
     .info-grid .label {
-        margin-top: 10px;
+        margin-top: 8px;
         font-size: 0.9rem;
     }
     .action-area {
@@ -380,6 +400,61 @@ body {
     }
     .thumb-img {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-area {
+        padding: 16px 12px;
+    }
+    .card {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+    .header-section h1 {
+        font-size: 1.6rem;
+    }
+    .header-section .sub {
+        font-size: 0.95rem;
+    }
+    .btn-edit {
+        width: 100%;
+        display: block;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .thumb-img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
+    .message-content {
+        max-width: 90%;
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    .sidebar-nav {
+        padding: 0 6px;
+        gap: 4px;
+    }
+    .menu-item {
+        padding: 8px 10px;
+        font-size: 0.78rem;
+    }
+    .content-area {
+        padding: 12px 8px;
+    }
+    .card {
+        padding: 15px 10px;
+        border-radius: 10px;
+    }
+    .header-section h1 {
+        font-size: 1.35rem;
+    }
+    .info-grid .label, .info-grid .value {
+        font-size: 0.88rem;
     }
 }
 </style>

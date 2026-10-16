@@ -273,6 +273,8 @@ select:focus {
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     max-width: 350px;
+    width: 90%;
+    box-sizing: border-box;
     animation: fadeIn 0.3s;
 }
 
@@ -281,6 +283,7 @@ select:focus {
     margin-bottom: 20px;
     font-weight: 600;
     color: var(--text-dark);
+    word-break: break-word;
 }
 
 .message-content button {
@@ -306,24 +309,68 @@ select:focus {
 /* --- RESPONSIVENESS --- */
 @media (max-width: 700px) {
     .page-wrapper {
-        margin-top: 70px;
+        margin-top: 20px;
     }
     .card {
-        padding: 25px;
+        padding: 25px 20px;
         border-radius: 15px;
     }
     .card h2 {
-        font-size: 24px;
+        font-size: 22px;
+        margin-bottom: 20px;
     }
     .back-btn {
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        position: static;
+        display: inline-block;
+        margin-bottom: 15px;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .btn-submit {
         font-size: 16px;
         padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px 10px;
+    }
+    .card {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+    .card h2 {
+        font-size: 19px;
+        margin-bottom: 16px;
+    }
+    input[type="text"],
+    input[type="password"],
+    select {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    .btn-submit {
+        padding: 11px 16px;
+        font-size: 15px;
+    }
+    .message-content {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    body {
+        padding: 10px 6px;
+    }
+    .card {
+        padding: 16px 10px;
+    }
+    .card h2 {
+        font-size: 17px;
     }
 }
 </style>

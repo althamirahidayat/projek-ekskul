@@ -347,6 +347,7 @@ body {
     gap: 12px;
     align-items: center;
     margin-top: 10px;
+    flex-wrap: wrap;
 }
 
 .btn-medsos {
@@ -471,6 +472,7 @@ input[type="file"] {
     width: 100%;
     max-width: 350px;
     background: #f9f9f9;
+    box-sizing: border-box;
 }
 
 .btn-submit {
@@ -537,6 +539,70 @@ input[type="file"] {
     }
     .medsos-links-row {
         justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px 0;
+    }
+    .container {
+        padding: 16px 12px;
+    }
+    .judul-ekskul {
+        font-size: 1.6rem;
+        word-break: break-word;
+    }
+    .section-title {
+        font-size: 1.35rem;
+    }
+    .status-box {
+        padding: 15px 12px;
+        align-items: center;
+        text-align: center;
+    }
+    .status-text-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        font-size: 0.95rem;
+    }
+    .btn-medsos {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    .btn-form, .btn-wa-group, .btn-submit {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    input[type="file"] {
+        max-width: 100%;
+    }
+    .message-content {
+        max-width: 90%;
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        padding: 12px 10px;
+    }
+    .judul-ekskul {
+        font-size: 1.35rem;
+    }
+    .gambar-ekskul {
+        max-width: 230px;
+    }
+    .deskripsi p {
+        font-size: 0.9rem;
+    }
+    .btn-form, .btn-submit, .btn-back {
+        font-size: 0.85rem;
+        padding: 10px 14px;
     }
 }
 </style>

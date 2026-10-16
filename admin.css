@@ -1,3 +1,8 @@
+:root {
+    --blue: #2d66ff;
+    --blue-hover: #1c4ad6;
+}
+
 .admin-section-title {
     font-size: 1.4rem;
     margin-bottom: 15px;
@@ -9,7 +14,50 @@
     border-radius: 5px;
     background: var(--blue);
     color: white;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.85rem;
 }
 .table-actions a:hover {
     background: var(--blue-hover);
+}
+
+.admin-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    box-sizing: border-box;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 20px 15px;
+        margin: 15px auto;
+    }
+    .admin-section-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-container {
+        padding: 15px 12px;
+        border-radius: 10px;
+    }
+    .table-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
 }
